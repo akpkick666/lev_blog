@@ -12,7 +12,12 @@
     <body>
         <h1>Blog Name</h1>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
-        
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline" onsubmit="return check();">
+            @csrf
+            @method('DELETE')
+            <button type="submit">delete</button> 
+        </form>
+
         <div class="post">
             <h2 class="title">{{$post -> title}}</h2>
             <img src=""></img>
@@ -23,5 +28,15 @@
         <div class="footer">
             <a href="/">back</a>
         </div>
+         <script>
+            function check(){
+                const checked = confirm("本当に削除しますか？");
+                if(checked == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>

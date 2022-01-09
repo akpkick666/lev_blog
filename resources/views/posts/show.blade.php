@@ -17,6 +17,7 @@
             @method('DELETE')
             <button type="submit">delete</button> 
         </form>
+
         <div class="post">
             <h2 class="title">{{$post -> title}}</h2>
             <img src=""></img>

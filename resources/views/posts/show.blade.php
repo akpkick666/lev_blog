@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -10,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        @section('content')
         <h1>Blog Name</h1>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline" onsubmit="return check();">
@@ -38,5 +41,6 @@
                 }
             }
         </script>
+        @endsection
     </body>
 </html>

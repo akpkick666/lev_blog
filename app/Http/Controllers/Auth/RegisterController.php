@@ -56,6 +56,7 @@ class RegisterController extends Controller
             'number' => ['required', 'integer'],
             'number_3' => ['required', 'integer'],
             'number_6' => ['required', 'integer'],
+            'body' => ['required', 'max:200'],
         ]);
     }
 
@@ -74,6 +75,7 @@ class RegisterController extends Controller
             'number' => $data['number'],
             'number_3' => $data['number_3'],
             'number_6' => $data['number_6'],
+            'body' => $data['body'],
         ]);
     }
 }

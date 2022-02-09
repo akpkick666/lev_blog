@@ -76,12 +76,12 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="number_ex" class="col-md-4 col-form-label text-md-right">経験者数</label>
+                            <label for="number" class="col-md-4 col-form-label text-md-right">経験者数</label>
         
                             <div class="col-md-3">
                                 <input id="nunber_3" type="number" placeholder="3年以上" min="1" class="form-control{{ $errors->has('number_3') ? ' is-invalid' : '' }}" name="number_3" value="{{ old('number_3') }}">
                                                    
-                                @error('number')
+                                @error('number_3')
                                     <span class="invalid-feedback" role="alert" style="display:inline;">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -91,7 +91,21 @@
                             <div class="col-md-3">
                                 <input id="nunber_6" type="number" placeholder="6年以上" min="1" class="form-control{{ $errors->has('number_6') ? ' is-invalid' : '' }}" name="number_6" value="{{ old('number_6') }}">
                                                    
-                                @error('number')
+                                @error('number_3')
+                                    <span class="invalid-feedback" role="alert" style="display:inline;">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>    
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="body" class="col-md-4 col-form-label text-md-right">チーム紹介</label>
+        
+                            <div class="col-md-6">
+                                <textarea id="body" type="text" rows="3" class="form-control @error('body') is-invalid @enderror" name="body" value="{{ old('body') }}"></textarea>
+                                                   
+                                @error('body')
                                     <span class="invalid-feedback" role="alert" style="display:inline;">
                                         <strong>{{ $message }}</strong>
                                     </span>

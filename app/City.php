@@ -9,4 +9,10 @@ class City extends Model
     protected $fillable = [
         'name',
     ];
+    
+    public function prefecture()
+    {
+        return $this->belongsTo('App\Prefecture');
+    }
+    
 }

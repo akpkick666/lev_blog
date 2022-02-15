@@ -4,30 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Http\Requests\PostRequest; // useする
+use Auth;
 
 class PostController extends Controller
 {
     public function index(Post $post){
-        $client = new \GuzzleHttp\Client();
-        
-        $url = 'https://opendata.resas-portal.go.jp/api/v1/cities?prefCode=11';
-        
-        $response = $client->request(
-            'GET',
-            $url,
-            ['headers' => [
-                'X-API-KEY' => config('services.resas.key'),
-            ],
-        ]);
-        
-        $area_cities = json_decode($response->getBody(), true);
-        dd($area_cities);
-        
-        foreach ($area_cities["result"] as $city){
-            $area_names = [$city["cityName"]];
-            dd($area_names);
-        };   
-       
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
     
@@ -36,7 +17,7 @@ class PostController extends Controller
     }
     
     public function create(){
-        return view("posts/create");
+        return view('posts/create');
     }
     
     public function store(PostRequest $request, Post $post){
@@ -59,4 +40,18 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
+    
+    public function register(){
+        return view('auth/register');
+    }
+    
+    public function login(){
+        return view('auth/login');
+    }
+    
+    public function mypage(){
+        $auths = Auth::user();
+        return view('match/mypage')->with(['auths' => $auths]);
+    }
+    
 }

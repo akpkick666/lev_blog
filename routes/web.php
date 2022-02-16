@@ -15,8 +15,9 @@ Route::get('/', 'PostController@index');
 Route::get('/auth/register', 'PostController@register');
 Route::get('/auth/login', 'PostController@login');
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/match/{id}', 'PostController@mypage');
-    Route::get('/match/{id}/edit', 'PostController@my_edit');
+    Route::get('/match/{id}', 'Admin\UserController@mypage');
+    Route::get('/match/{id}/edit', 'Admin\UserController@my_edit');
+    Route::put('/match/{id}', 'Admin\UserController@my_update');
     Route::get('/posts/create', 'PostController@create');
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::delete('/posts/{post}', 'PostController@delete');

@@ -16,6 +16,7 @@ Route::get('/auth/register', 'PostController@register');
 Route::get('/auth/login', 'PostController@login');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/match/{id}', 'PostController@mypage');
+    Route::get('/match/{id}/edit', 'PostController@my_edit');
     Route::get('/posts/create', 'PostController@create');
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::delete('/posts/{post}', 'PostController@delete');

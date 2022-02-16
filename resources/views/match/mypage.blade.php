@@ -61,7 +61,7 @@
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a class="btn btn-info" href="/match/{id}/edit" role="button">編集</a>
+                                <a class="btn btn-info" href="/match/{$auths->id}/edit" role="button">編集</a>
                             </div>
                         </div>
                         

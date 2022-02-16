@@ -54,4 +54,9 @@ class PostController extends Controller
         return view('match/mypage')->with(['auths' => $auths]);
     }
     
+    public function my_edit(){
+        $auths = Auth::user();
+        return view('match/my_edit')->with(['auths' => $auths]);
+    }
+    
 }

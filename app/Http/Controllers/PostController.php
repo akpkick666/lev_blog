@@ -48,15 +48,4 @@ class PostController extends Controller
     public function login(){
         return view('auth/login');
     }
-    
-    public function mypage(){
-        $auths = Auth::user();
-        return view('match/mypage')->with(['auths' => $auths]);
-    }
-    
-    public function my_edit(){
-        $auths = Auth::user();
-        return view('match/my_edit')->with(['auths' => $auths]);
-    }
-    
 }

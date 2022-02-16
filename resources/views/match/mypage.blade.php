@@ -9,7 +9,7 @@
             <div class="col-lg-4">
                 <div class="text-center">
                     <img class="mx-auto rounded-circle" src="" alt="..." />
-                    <h4>{{$auths -> name}}</h4>
+                    <h4>{{$user -> name}}</h4>
                 </div>
             </div>
         </div>   
@@ -22,7 +22,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
                             <div class="col-md-6">
                                 <div>
-                                    {{$auths -> email}}
+                                    {{$user -> email}}
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             <label for="number" class="col-md-4 col-form-label text-md-right">メンバー数</label>
                             <div class="col-md-6">
                                 <div>
-                                    {{$auths -> number}}
+                                    {{$user -> number}}
                                 </div>
                             </div>
                         </div>
@@ -40,12 +40,12 @@
                             <label for="number" class="col-md-4 col-form-label text-md-right">経験者数</label>
                             <div class="col-md-3">
                                 <div>
-                                    {{$auths -> number_3}}
+                                    {{$user -> number_3}}
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div>
-                                    {{$auths -> number_6}}
+                                    {{$user -> number_6}}
                                 </div>
                             </div>
                         </div>
@@ -54,14 +54,14 @@
                             <label for="body" class="col-md-4 col-form-label text-md-right">チーム紹介</label>
                             <div class="col-md-6">
                                 <div>
-                                    {{$auths -> body}}
+                                    {{$user -> body}}
                                 </div>
                             </div>
                         </div>
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a class="btn btn-info" href="/match/{$auths->id}/edit" role="button">編集</a>
+                                <a class="btn btn-info" href="/match/{{$user->id}}/edit" role="button">編集</a>
                             </div>
                         </div>
                         

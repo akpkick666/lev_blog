@@ -23,8 +23,8 @@
                             <p class="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 @guest
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/auth/register">会員登録</a>
-                                <a class="btn btn-outline-light btn-lg px-4" href="/auth/login">ログイン</a>
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="/register">会員登録</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="/login">ログイン</a>
                                 @endguest
                                 @auth
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">マッチ予定</a>
@@ -74,7 +74,7 @@
                         </div>
                         <h2 class="h4 fw-bolder">チーム募集</h2>
                         <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
+                        <a class="text-decoration-none" href='/posts/create'>
                             <button type="button" class="btn btn-outline-primary">Call to action</button>
                         </a>
                     </div>
@@ -90,7 +90,6 @@
                             <button type="button" class="btn btn-outline-primary">Call to action</button>
                         </a>
                     </div>
-                    @endauth
                     <div class="col-lg-4">
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -104,6 +103,7 @@
                             <button type="button" class="btn btn-outline-primary">Call to action</button>
                         </a>
                     </div>
+                    @endauth
                 </div>
             </div>
         </section>

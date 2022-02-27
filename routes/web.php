@@ -12,17 +12,22 @@
 */
 
 Route::get('/', 'PostController@index');
+
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/match/{id}', 'UserController@mypage');
     Route::get('/match/{id}/edit', 'UserController@my_edit');
     Route::put('/match/{id}', 'UserController@my_update');
     Route::get('/posts/create', 'PostController@create');
+    Route::post('/city/prefectures', 'CityController@city')->name('post.city');
     Route::get('/posts/{post}/edit', 'PostController@edit');
     Route::delete('/posts/{post}', 'PostController@delete');
     Route::put('/posts/{post}', 'PostController@update');
     Route::get('/posts/{post}', 'PostController@show');
     Route::post('/posts', 'PostController@store');
 });    
-    
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/API/create', 'AxiosController@create');
+});
 Auth::routes();
 

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\City;
+use App\Prefecture;
 use App\Http\Requests\PostRequest; // useする
-use Auth;
+use Illuminate\Http\Request;
+
 
 class PostController extends Controller
 {
@@ -16,8 +19,12 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
-    public function create(){
-        return view('posts/create');
+    public function create(City $city, Prefecture $prefecture){
+        $cities = $city->pluck('name','id');
+        $prefectures = $prefecture->pluck('name','id');
+        return view('posts/create')->with([
+            'cities' => $cities,
+            'prefectures' => $prefectures ]);
     }
     
     public function store(PostRequest $request, Post $post){
@@ -40,5 +47,4 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
-    
 }

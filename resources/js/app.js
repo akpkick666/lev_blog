@@ -6,3 +6,11 @@
 
 require('bootstrap');
 
+require('jquery');
+
+require('./city');
+
+
+
+
+

@@ -79,7 +79,8 @@
         </select>
         
         
-        <script src="{{ mix('js/city.js') }}"></script>
+        
+        
         
         
         

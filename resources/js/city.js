@@ -1,6 +1,7 @@
 // セレクトボックスの連動
           import $ from 'jquery';
           let pref_val;
+  
           // 親カテゴリのselect要素が変更になるとイベントが発生
           
           $('#prefList').change(function () {
@@ -22,7 +23,6 @@
               $.each(data, function(key, value) {
                 $('#cityList').append($('<option>').text(value.name).attr('value', key));
               });
-              
 
             })
             .fail(function() {

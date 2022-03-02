@@ -71,12 +71,15 @@
         </select>
         
         <p>市区町村</p>
-        <select name="city_id" id="cityList">
+        <select name="city_id" id="cityList" class="js-example-basic-multiple" multiple="multiple">
             <option value="">選択してください</option>
             @foreach ($cities as $index => $name)
                 <option value="{{$index}}" data-val="">{{$name}}</option>
             @endforeach
         </select>
+        
+       
+        
         
         
         

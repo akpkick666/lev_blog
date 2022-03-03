@@ -30,7 +30,7 @@
                                 <p class="date__error" style="color:red">{{ $errors->first('post.date') }}</p>
                             </div>
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="date" type="text" placeholder="name@example.com" data-sb-validations="required,date" />
+                                <input class="form-control" id="email" type="text" placeholder="name@example.com" data-sb-validations="required,date" />
                                 <label for="date">Email</label>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
@@ -44,6 +44,24 @@
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
                                 <label for="message">Message</label>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <p>Prefecture</p>
+                                <select name="post[pref_id]" id="prefList" class="form-control">
+                                    <option value="">選択してください</option>
+                                    @forEach($prefectures as $index => $name)
+                                        <option value="{{$index}}">{{$name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>   
+                            <div class="form-floating mb-3">
+                                <p>City</p>
+                                <select name="post[city_id[]]" id="cityList" class="select2 form-control" multiple>
+                                    <option value="">選択してください</option>
+                                    @foreach ($cities as $index => $name)
+                                        <option value="{{$index}}" data-val="">{{$name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             
                             <div class="d-none" id="submitSuccessMessage">
@@ -62,29 +80,8 @@
         
         
         
-        <p>都道府県</p>
-        <select name="pref_id" id="prefList">
-            <option value="">選択してください</option>
-            @forEach($prefectures as $index => $name)
-                <option value="{{$index}}">{{$name}}</option>
-            @endforeach
-        </select>
-        
-        <p>市区町村</p>
-        <select name="city_id" id="cityList" class="js-example-basic-multiple" multiple="multiple">
-            <option value="">選択してください</option>
-            @foreach ($cities as $index => $name)
-                <option value="{{$index}}" data-val="">{{$name}}</option>
-            @endforeach
-        </select>
-        
-       
-        
-        
-        
-        
-        
-        
+      
+      
         
         
         

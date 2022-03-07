@@ -22,16 +22,16 @@
         </form>
 
         <div class="post">
-            <h2 class="title">{{$post -> title}}</h2>
+            <h2 class="title">{{$post -> date}}</h2>
             <img src=""></img>
-            <p class="body">{{$post -> body}}</p>
+            <p class="body">{{$post -> message}}</p>
             <p class="updated_at">{{$post -> updated_at}}</p>
         </div>
         
         <div class="footer">
             <a href="/">back</a>
         </div>
-         <script>
+        <script>
             function check(){
                 const checked = confirm("本当に削除しますか？");
                 if(checked == true){

@@ -14,7 +14,7 @@ class User extends Authenticatable
     //「1対多」の関係なので'posts'と複数形に
     public function posts(){
         return $this->hasMany('App\Post');
-    };
+    }
 
 
 

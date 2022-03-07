@@ -25,53 +25,49 @@
                         <form action="/posts" method="POST">
                             @csrf
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="date" type="date" name="post[date]" placeholder="Enter your name..." value="{{ old('post.date') }}"/>
-                                <label for="date">Day</label>
-                                <p class="date__error" style="color:red">{{ $errors->first('post.date') }}</p>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="text" placeholder="name@example.com" data-sb-validations="required,date" />
-                                <label for="date">Email</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <div class="form-floating mb-3">
                                 <p>Prefecture</p>
-                                <select name="post[pref_id]" id="prefList" class="form-control">
+                                <select name="post[prefecture]" id="prefList" class="form-control">
                                     <option value="">選択してください</option>
                                     @forEach($prefectures as $index => $name)
                                         <option value="{{$index}}">{{$name}}</option>
                                     @endforeach
                                 </select>
+                                <p class="prefecture__error" style="color:red">{{ $errors->first('post.prefecture') }}</p>
                             </div>   
                             <div class="form-floating mb-3">
-                                <p>City</p>
-                                <select name="post[city_id[]]" id="cityList" class="select2 form-control" multiple>
+                                <p>City（複数選択可）</p>
+                                <select name="post[city]" id="cityList" class="select2 form-control" multiple>
                                     <option value="">選択してください</option>
                                     @foreach ($cities as $index => $name)
                                         <option value="{{$index}}" data-val="">{{$name}}</option>
                                     @endforeach
                                 </select>
+                                <p class="city__error" style="color:red">{{ $errors->first('post.city') }}</p>
                             </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="date" type="date" name="post[date]" value="{{ old('post.date') }}" placeholder="Select date..."/>
+                                <label for="date">Day</label>
+                                <p class="date__error" style="color:red">{{ $errors->first('post.date') }}</p>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="gym" type="text" name="post[gym]" value="{{ old('post.gym') }}" placeholder="Input address..."/>
+                                <label for="gym">Gym address</label>
+                                <p class="gym__error" style="color:red">{{ $errors->first('post.gym') }}</p>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="fee" type="number" min="0" step="100" name="post[fee]" placeholder="How much does it take?" value="{{ old('post.fee') }}"/>
+                                <label for="fee">Fee</label>
+                                <p class="fee__error" style="color:red">{{ $errors->first('post.fee') }}</p>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" name="post[message]" placeholder="Enter your message here..." value="{{ old('post.message') }}" style="height: 10rem"></textarea>
+                                <label for="message">Message</label>
+                                <p class="message__error" style="color:red">{{ $errors->first('post.message') }}</p>
+                            </div>
+                            <div class="d-grid"><input class="btn btn-primary btn-lg" id="submitButton" type="submit" value="submit"/></div>
                             
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                </div>
-                            </div>
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                            
+                            
                         </form>
                     </div>
                 </div>

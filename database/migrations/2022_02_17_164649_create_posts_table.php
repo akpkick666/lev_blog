@@ -16,14 +16,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities');
-            $table->string('gym', 50);
-            $table->integer('number');
+            $table->integer('prefecture');
+            $table->string('city');
+            $table->string('gym');
             $table->integer('fee');
-            $table->string('message', 50);
+            $table->string('message');
             $table->timestamps();
             $table->softDeletes();
         });

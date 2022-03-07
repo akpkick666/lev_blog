@@ -9,16 +9,23 @@ class Post extends Model
 {
     use SoftDeletes;
     
+    //Categoryに対するリレーション
+    //「1対多」の関係なので単数系に
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+
+    
     protected $fillable = [
-        'title',
-        'body',
         'date',
-        'user_id',
-        'city_id',
+        'prefecture',
+        'city',
         'gym',
         'number',
         'fee',
         'message',
+        'user_id'
     ];
     
     public function getPaginateByLimit(int $limit_count = 5)

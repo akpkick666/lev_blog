@@ -8,6 +8,8 @@ use App\Prefecture;
 use App\Http\Requests\PostRequest; // useする
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth; // user_idレコード追加
+
 
 class PostController extends Controller
 {
@@ -29,7 +31,10 @@ class PostController extends Controller
     
     public function store(PostRequest $request, Post $post){
         $input = $request['post'];
-        $post->fill($input)->save();
+        $input['city'] = serialize($input['city']);
+        $post->fill($input);
+        $post->fill(['user_id'=>Auth::user()->id ])->save();
+        
         return redirect('/posts/' . $post->id);
     }
 

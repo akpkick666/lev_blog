@@ -167,10 +167,10 @@
                 <div class="post">
                     <div class="info">
                         <h2 class='title'>
-                            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                            <a href="/posts/{{ $post->id }}">{{ $post->date }}</a>
                         </h2>
                         <img src=""></img>
-                        <p class="body">{{$post -> body}}</p>
+                        <p class="body">{{$post -> message}}</p>
                     </div>
                     <div class="select">
                         <bottun type="bottun">Bottun1</bottun>

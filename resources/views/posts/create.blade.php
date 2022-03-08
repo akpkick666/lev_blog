@@ -64,8 +64,28 @@
                                 <label for="message">Message</label>
                                 <p class="message__error" style="color:red">{{ $errors->first('post.message') }}</p>
                             </div>
-                            <div class="d-grid"><input class="btn btn-primary btn-lg" id="submitButton" type="submit" value="submit"/></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="button" data-toggle="modal" data-target="#exampleModal">submit</button></div>
                             
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">チーム募集</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>投稿してよろしいですか？</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                                    <button type="submit" class="btn btn-primary">投稿</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             
                             
                         </form>
